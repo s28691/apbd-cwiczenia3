@@ -13,6 +13,15 @@ public class ContainerShip
         this.maxContainerCount = maxContainerCount;
         this.maxCargoWeight = maxCargoWeight;
     }
+
+    public ContainerShip(double maxSpeed, int maxContainerCount, double maxCargoWeight)
+    {
+        this.maxSpeed = maxSpeed;
+        this.maxContainerCount = maxContainerCount;
+        this.maxCargoWeight = maxCargoWeight;
+        this.containers = new Container[10];
+    }
+
     public void LoadSingle(Container cont)
     {
         int newSize = containers.Length + 1;

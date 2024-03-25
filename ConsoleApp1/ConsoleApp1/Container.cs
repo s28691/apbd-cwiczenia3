@@ -2,7 +2,7 @@
 
 public class Container : IContainer
 {
-    private static int ContIdAll = 0;
+    private static int num = 0;
     private int ContId;
     private double mass;
     private double height;
@@ -13,8 +13,8 @@ public class Container : IContainer
 
     public Container(double mass, double height, double contMass, double depth, double maxMass)
     {
-        this.ContId = ContIdAll;
-        ContIdAll++;
+        this.ContId = num;
+        num++;
         this.mass = mass;
         this.height = height;
         this.contMass = contMass;
