@@ -2,28 +2,26 @@
 
 public class Container : IContainer
 {
-   
     private static int ContIdAll = 0;
     private int ContId;
     private double mass;
     private double height;
     private double contMass;
-    private double breadth;
+    private double depth;
     private string serialNumber;
     private double maxMass;
 
-    public Container(double mass, double height, double contMass, double breadth, double maxMass)
+    public Container(double mass, double height, double contMass, double depth, double maxMass)
     {
         this.ContId = ContIdAll;
         ContIdAll++;
         this.mass = mass;
         this.height = height;
         this.contMass = contMass;
-        this.breadth = breadth;
+        this.depth = depth;
         this.maxMass = maxMass;
         this.serialNumber = "KON-";
     }
-    
     public void Unload()
     {
         this.mass = 0;
