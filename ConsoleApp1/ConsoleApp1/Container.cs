@@ -2,33 +2,73 @@
 
 public class Container : IContainer
 {
-    public double Height { get; set; }
+   
+    private static int ContIdAll = 0;
+    private int ContId;
+    private double mass;
+    private double height;
+    private double contMass;
+    private double breadth;
+    private string serialNumber;
+    private double maxMass;
+
+    public Container(double mass, double height, double contMass, double breadth, double maxMass)
+    {
+        this.ContId = ContIdAll;
+        ContIdAll++;
+        this.mass = mass;
+        this.height = height;
+        this.contMass = contMass;
+        this.breadth = breadth;
+        this.maxMass = maxMass;
+        this.serialNumber = "KON-";
+    }
     
-    private double _cargoWeight;
-
-    public Container(double cargoWeight, double height)
-    {
-        this._cargoWeight = cargoWeight;
-        this.Height = height;
-    }
-
-    public double GetCargoWeight()
-    {
-        return this._cargoWeight;
-    }
-
-    public void SetCargoWeight(double NewCargoWeight)
-    {
-        this._cargoWeight = NewCargoWeight;
-    }
-
     public void Unload()
     {
-        throw new NotImplementedException();
+        this.mass = 0;
     }
 
-    public virtual void Load(double cargoWeight)
+    public void Load(double mass)
     {
-        throw new OverfillException();
+        double newMass = this.mass + mass;
+        if (newMass > maxMass)
+        {
+            throw new OverfillException();
+        }
+        else
+        {
+            this.mass = newMass;
+        }
+
+    }
+    public double GetMaxMass()
+    {
+        return this.maxMass;
+    }
+    
+    public double GetMass()
+    {
+        return this.mass;
+    }
+    
+    public int GetId()
+    {
+        return this.ContId;
+    }
+
+    public string GetSN()
+    {
+        return this.serialNumber;
+    }
+
+    public void setSN(string SN)
+    {
+        this.serialNumber = SN;
+    }
+
+    public void ChangeMass(double mass)
+    {
+        this.mass = mass;
     }
 }
