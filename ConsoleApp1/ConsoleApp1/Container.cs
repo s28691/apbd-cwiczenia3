@@ -40,6 +40,10 @@ public class Container : IContainer
         }
 
     }
+    public override string ToString()
+    {
+        return $"Container ID: {ContId}, Mass: {mass}, Height: {height}, ContMass: {contMass}, Depth: {depth}, Serial Number: {serialNumber}, Max Mass: {maxMass}";
+    }
     public double GetMaxMass()
     {
         return this.maxMass;
